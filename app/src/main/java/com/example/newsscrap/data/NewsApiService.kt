@@ -6,5 +6,5 @@ import retrofit2.Response
 
 interface ApiService {
     @GET
-    suspend fun getPokemonList(@Url url: String): Response<com.example.newsscrap.data.Response>
+    suspend fun getNewsList(@Url url: String): Response<>
 }
