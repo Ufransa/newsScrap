@@ -1,18 +1,90 @@
 package com.example.newsscrap.newslist
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.newsscrap.R
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.newsscrap.data.NewsApiService
+import com.example.newsscrap.data.Results
+import com.example.newsscrap.databinding.FragmentNewsListBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+
+private lateinit var binding: FragmentNewsListBinding
+private lateinit var newsAdapter: NewsAdapter
+private lateinit var linearLayoutManager: RecyclerView.LayoutManager
+private var news = listOf<Results?>()
+
 
 class NewsList : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        return inflater.inflate(R.layout.fragment_news_list, container, false)
+    ): View {
+        binding = FragmentNewsListBinding.inflate(inflater, container, false)
+        return binding.root
     }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initRecyclerView()
+        //searchByName()
+    }
+
+    //TODO corregir con la url de la api original
+    private fun searchByName() {
+        CoroutineScope(Dispatchers.IO).launch {
+            val call = getRetrofit().create(NewsApiService::class.java)
+                .getNewsList("news/news")
+
+            val newsResponse = call.body()?.results
+            activity?.runOnUiThread {
+                if (call.isSuccessful) {
+                    news = newsResponse!!
+                    newsAdapter.notifyDataSetChanged()
+                } else {
+                    showError()
+                }
+            }
+        }
+    }
+
+    private fun showError() {
+        Toast.makeText(activity, "Something has happend", Toast.LENGTH_SHORT).show()
+    }
+
+    private fun initRecyclerView() {
+
+        //Inicializamos el adapter
+        newsAdapter = NewsAdapter(news)
+
+        //Organizando la vista de la activity
+        linearLayoutManager = LinearLayoutManager(activity)
+
+        //Metemos adapter y layout dentro del RV
+        binding.rvNewsList.apply {
+            setHasFixedSize(true)
+            layoutManager = linearLayoutManager
+            adapter = newsAdapter
+        }
+    }
+
+    //TODO 5: Retrofit (corregir con la llamada original)
+    private fun getRetrofit(): Retrofit {
+        return Retrofit.Builder()
+            .baseUrl("https://634694e3745bd0dbd3811262.mockapi.io/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+
 }
+
