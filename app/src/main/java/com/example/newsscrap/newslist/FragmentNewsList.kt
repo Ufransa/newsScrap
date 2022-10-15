@@ -1,15 +1,17 @@
 package com.example.newsscrap.newslist
 
+import android.annotation.SuppressLint
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.newsscrap.data.News
 import com.example.newsscrap.data.NewsApiService
-import com.example.newsscrap.data.Results
 import com.example.newsscrap.databinding.FragmentNewsListBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,7 +22,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 private lateinit var binding: FragmentNewsListBinding
 private lateinit var newsAdapter: NewsAdapter
 private lateinit var linearLayoutManager: RecyclerView.LayoutManager
-private var news = listOf<Results?>()
+private var news : List<News?> = listOf<News>()
 
 
 class NewsList : Fragment() {
@@ -36,45 +38,43 @@ class NewsList : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         initRecyclerView()
-        //searchByName()
+        searchByName()
     }
 
     //TODO corregir con la url de la api original
+    @SuppressLint("NotifyDataSetChanged")
     private fun searchByName() {
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(NewsApiService::class.java)
                 .getNewsList("news/news")
-
-            val newsResponse = call.body()?.results
+            val newsResponse = call.body()
             activity?.runOnUiThread {
                 if (call.isSuccessful) {
                     news = newsResponse!!
                     newsAdapter.notifyDataSetChanged()
                 } else {
-                    showError()
+                    Log.i("ERROR", "NO HA FUNCIONADO")
                 }
             }
         }
     }
 
-    private fun showError() {
-        Toast.makeText(activity, "Something has happend", Toast.LENGTH_SHORT).show()
-    }
 
     private fun initRecyclerView() {
-
         //Inicializamos el adapter
-        newsAdapter = NewsAdapter(news)
-
+        newsAdapter = NewsAdapter(news, ::listener)
         //Organizando la vista de la activity
         linearLayoutManager = LinearLayoutManager(activity)
-
         //Metemos adapter y layout dentro del RV
         binding.rvNewsList.apply {
             setHasFixedSize(true)
             layoutManager = linearLayoutManager
             adapter = newsAdapter
         }
+    }
+
+    private fun listener(url: String?){
+        findNavController().navigate(NewsListDirections.actionNewsListToNewsDetails(url))
     }
 
     //TODO 5: Retrofit (corregir con la llamada original)

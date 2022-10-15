@@ -8,5 +8,5 @@ interface NewsApiService {
 
     // TODO 4: Retrofit
     @GET
-    suspend fun getNewsList(@Url url: String): Response<News>
+    suspend fun getNewsList(@Url url: String): Response<List<News>>
 }
