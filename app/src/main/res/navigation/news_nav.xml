@@ -3,20 +3,25 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/news_nav"
-    app:startDestination="@id/newsList">
+    app:startDestination="@id/NewsListFragment">
 
     <fragment
-        android:id="@+id/newsList"
+        android:id="@+id/NewsListFragment"
         android:name="com.example.newsscrap.newslist.NewsList"
         android:label="fragment_news_list"
-        tools:layout="@layout/fragment_news_list" >
+        tools:layout="@layout/fragment_news_list">
         <action
             android:id="@+id/action_newsList_to_newsDetails"
-            app:destination="@id/newsDetails" />
+            app:destination="@id/NewsDetailsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/newsDetails"
+        android:id="@+id/NewsDetailsFragment"
         android:name="com.example.newsscrap.newsdetails.NewsDetails"
         android:label="fragment_news_details"
-        tools:layout="@layout/fragment_news_details" />
+        tools:layout="@layout/fragment_news_details">
+        <argument
+            android:name="newsUrl"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
 </navigation>

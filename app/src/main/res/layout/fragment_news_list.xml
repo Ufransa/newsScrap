@@ -5,4 +5,10 @@
     android:layout_height="match_parent"
     tools:context=".newslist.NewsList">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvNewsList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:listitem="@layout/item_news" />
+
 </FrameLayout>
