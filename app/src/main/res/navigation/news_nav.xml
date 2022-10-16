@@ -29,4 +29,9 @@
         android:name="com.example.newsscrap.newssave.FragmentNewsSave"
         android:label="fragment_news_save"
         tools:layout="@layout/fragment_news_save" />
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.newsscrap.settings.SettingsFragment"
+        android:label="fragment_settings"
+        tools:layout="@layout/fragment_settings" />
 </navigation>
