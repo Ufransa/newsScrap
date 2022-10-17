@@ -1,18 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".settings.SettingsFragment">
 
-    <Switch
-        android:id="@+id/sLan"
+    <TextView
+        android:text="@string/settings"
+        android:textSize="50dp"
+        android:id="@+id/tvSettings"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/sLan"
+        android:layout_width="183dp"
+        android:layout_height="52dp"
         android:text="@string/selectedLenguaje"
+        app:layout_constraintBottom_toTopOf="@+id/rgLayout"
+        app:layout_constraintEnd_toEndOf="@+id/tvSettings"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/tvSettings"
+        app:layout_constraintTop_toBottomOf="@+id/tvSettings"
+        app:layout_constraintVertical_bias="0.058"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
 
+    <TextView
+        android:id="@+id/tvLayoutText"
+        android:layout_width="211dp"
+        android:layout_height="24dp"
+        android:text="@string/layoutText"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/rgLayout"
+        app:layout_constraintEnd_toEndOf="@+id/sLan"
+        app:layout_constraintHorizontal_bias="0.535"
+        app:layout_constraintStart_toStartOf="@+id/sLan"
+        app:layout_constraintTop_toBottomOf="@+id/sLan"
+        app:layout_constraintVertical_bias="0.873" />
 
-</LinearLayout>
+    <RadioGroup
+        android:id="@+id/rgLayout"
+        android:layout_width="150dp"
+        android:layout_height="94dp"
+        android:layout_marginBottom="384dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/tvLayoutText"
+        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintStart_toStartOf="@+id/tvLayoutText">
+
+
+        <RadioButton
+            android:id="@+id/rbGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/layoutGrid" />
+
+        <RadioButton
+            android:id="@+id/rbLinear"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/layoutLinear" />
+    </RadioGroup>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

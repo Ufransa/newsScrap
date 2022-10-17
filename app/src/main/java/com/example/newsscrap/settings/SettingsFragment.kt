@@ -5,12 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.newsscrap.databinding.FragmentNewsListBinding
 import com.example.newsscrap.databinding.FragmentSettingsBinding
 import java.util.*
 
-class SettingsFragment : Fragment() {
+class SettingsFragment : Fragment(){
 
     private lateinit var binding: FragmentSettingsBinding
+
+    //TODO: Cambio de Layout 3
+    //private lateinit var listbinding: FragmentNewsListBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -22,6 +28,11 @@ class SettingsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         switchOnClick()
+
+        //TODO: Para implementar cuando sea funcional
+        // Cambio de Layout 2
+
+        // changeLayout()
     }
 
     private fun updateResourse(language: String) {
@@ -31,10 +42,11 @@ class SettingsFragment : Fragment() {
 
         config.setLocale(Locale(language))
         res.updateConfiguration(config, displayMetrics)
-        config.locale = Locale(language)
-        resources.updateConfiguration(config, displayMetrics)
+        // config.locale = Locale(language)
+        // resources.updateConfiguration(config, displayMetrics)
     }
 
+    //Cambio de idioma con switch
     private fun switchOnClick(){
         binding.sLan.setOnCheckedChangeListener{ _, isChecked ->
             if (isChecked){
@@ -44,4 +56,17 @@ class SettingsFragment : Fragment() {
             }
         }
     }
+
+
+    //Cambio de disposición de la información
+    //TODO: Aun no funcional Cambio de Layout 1
+    /*private fun changeLayout(){
+        binding.rgLayout.setOnClickListener(){
+            if(binding.rbGrid.isChecked){
+                listbinding.rvNewsList.layoutManager = GridLayoutManager(context, 3)
+            } else {
+                listbinding.rvNewsList.layoutManager = LinearLayoutManager(context)
+            }
+        }
+    }*/
 }

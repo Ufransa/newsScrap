@@ -4,5 +4,9 @@
     <string name="home">Home</string>
     <string name="library">Library</string>
     <string name="selectedLenguaje">Change to español</string>
+    <string name="settings">Settings</string>
+    <string name="layoutGrid">Grid Layout</string>
+    <string name="layoutLinear">Linear Layout</string>
+    <string name="layoutText"> Change the slyle of the list </string>
 
 </resources>
