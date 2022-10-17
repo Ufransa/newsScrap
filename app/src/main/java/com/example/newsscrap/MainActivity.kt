@@ -11,7 +11,6 @@ import com.example.newsscrap.settings.SettingsFragment
 class MainActivity : AppCompatActivity() {
 
     private lateinit var mBinding: ActivityMainBinding
-    private lateinit var button: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,12 +18,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(mBinding.root)
         setupBottomNav()
 
-        button = mBinding.bSettings
 
-        button.setOnClickListener{
-            val intent = Intent(this, SettingsFragment::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun setupBottomNav(){

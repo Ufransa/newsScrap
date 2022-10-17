@@ -24,15 +24,16 @@ class SettingsFragment : Fragment() {
         switchOnClick()
     }
 
+    @Suppress("DEPRECATION")
     private fun updateResourse(language: String) {
-        val res = resources
-        val displayMetrics = res.displayMetrics
+        val displayMetrics = resources.displayMetrics
         val config = resources.configuration
 
         config.setLocale(Locale(language))
-        res.updateConfiguration(config, displayMetrics)
-        config.locale = Locale(language)
         resources.updateConfiguration(config, displayMetrics)
+
+//      config.setLocale(Locale(language))
+//      resources.updateConfiguration(config, displayMetrics)
     }
 
     private fun switchOnClick(){

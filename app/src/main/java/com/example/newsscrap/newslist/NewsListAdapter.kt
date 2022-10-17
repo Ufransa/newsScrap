@@ -9,11 +9,11 @@ import com.example.newsscrap.data.News
 import com.example.newsscrap.databinding.ItemNewsBinding
 
 
-class NewsAdapter(
+class NewsListAdapter(
     private val news: List<News?>,
     private val listener: (String?) -> Unit
     ) :
-    RecyclerView.Adapter<NewsAdapter.ViewHolder>() {
+    RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater

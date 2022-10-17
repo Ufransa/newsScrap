@@ -20,7 +20,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private lateinit var binding: FragmentNewsListBinding
-private lateinit var newsAdapter: NewsAdapter
+private lateinit var newsAdapter: NewsListAdapter
 private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 private var news : List<News?> = listOf<News>()
 
@@ -62,7 +62,7 @@ class NewsList : Fragment() {
 
     private fun initRecyclerView() {
         //Inicializamos el adapter
-        newsAdapter = NewsAdapter(news, ::listener)
+        newsAdapter = NewsListAdapter(news, ::listener)
         //Organizando la vista de la activity
         linearLayoutManager = LinearLayoutManager(activity)
         //Metemos adapter y layout dentro del RV
