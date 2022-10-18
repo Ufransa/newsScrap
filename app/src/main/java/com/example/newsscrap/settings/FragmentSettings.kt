@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.example.newsscrap.databinding.FragmentSettingsBinding
 import java.util.*
 
-class SettingsFragment : Fragment() {
+class FragmentSettings : Fragment() {
 
     private lateinit var binding: FragmentSettingsBinding
 

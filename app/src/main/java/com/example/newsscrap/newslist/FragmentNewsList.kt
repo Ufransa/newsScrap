@@ -10,9 +10,11 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.newsscrap.R
 import com.example.newsscrap.data.News
 import com.example.newsscrap.data.NewsApiService
 import com.example.newsscrap.databinding.FragmentNewsListBinding
+import com.example.newsscrap.newssave.FragmentNewsSave
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -62,7 +64,7 @@ class NewsList : Fragment() {
 
     private fun initRecyclerView() {
         //Inicializamos el adapter
-        newsAdapter = NewsListAdapter(news, ::listener)
+        newsAdapter = NewsListAdapter(news, ::listener, ::guardarNews)
         //Organizando la vista de la activity
         linearLayoutManager = LinearLayoutManager(activity)
         //Metemos adapter y layout dentro del RV
@@ -71,6 +73,22 @@ class NewsList : Fragment() {
             layoutManager = linearLayoutManager
             adapter = newsAdapter
         }
+    }
+
+    private fun guardarNews(news: News?){
+        val args = Bundle()
+        args.putString("titulo", news?.titulo)
+        args.putString("descripcion", news?.descripcion)
+        args.putString("url", news?.url)
+        args.putString("imagen", news?.imagen)
+
+        val fragment = FragmentNewsSave()
+        if (args!=null) fragment.arguments = args
+
+        val fragmentManager = activity?.supportFragmentManager  //creamos una instancia de fragment manager
+        val fragmentTransaction = fragmentManager?.beginTransaction()
+        fragmentTransaction?.commit()
+
     }
 
     private fun listener(url: String?){

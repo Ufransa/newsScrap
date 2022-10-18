@@ -1,5 +1,6 @@
 package com.example.newsscrap.newslist
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +12,8 @@ import com.example.newsscrap.databinding.ItemNewsBinding
 
 class NewsListAdapter(
     private val news: List<News?>,
-    private val listener: (String?) -> Unit
+    private val listener: (String?) -> Unit,
+    private val guardarNews: (News?) -> Unit
     ) :
     RecyclerView.Adapter<NewsListAdapter.ViewHolder>() {
 
@@ -24,11 +26,16 @@ class NewsListAdapter(
 
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val news = news[position]
-        holder.bind(news)
+        val new = news[position]
+        val binding = holder.binding()
+        holder.bind(new)
 
         holder.itemView.setOnClickListener {
-            listener(news?.url)
+            listener(new?.url)
+        }
+
+        binding.imgGuardar.setOnClickListener {
+            guardarNews(new)
         }
     }
 
@@ -41,7 +48,10 @@ class NewsListAdapter(
         fun bind(news: News?) {
             binding.tvTituloNews.text = news?.titulo
             binding.tvDescripcionNews.text = news?.descripcion
-
         }
+        fun binding(): ItemNewsBinding{
+            return binding
+        }
+
     }
 }

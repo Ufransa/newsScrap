@@ -1,5 +1,6 @@
 package com.example.newsscrap.newssave
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -9,16 +10,16 @@ import com.example.newsscrap.data.News
 import com.example.newsscrap.databinding.ItemNewsSaveBinding
 
 class NewsSaveAdapter(
-    private val news: List<News>
+    private val news: MutableList<News?>
 ) : RecyclerView.Adapter<NewsSaveAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ItemNewsSaveBinding): RecyclerView.ViewHolder(binding.root){
-        fun bind(new: News) {
+        fun bind(new: News?) {
             with(binding){
-                tvTituloNews.text = new.titulo
-                tvDescripcion.text = new.descripcion
+                tvTituloNews.text = new?.titulo
+                tvDescripcion.text = new?.descripcion
                 Glide.with(tvDescripcion.context)
-                    .load(new.imagen)
+                    .load(new?.imagen)
                     .diskCacheStrategy(DiskCacheStrategy.ALL)
                     .centerCrop()
                     .into(imgNews)
@@ -37,4 +38,10 @@ class NewsSaveAdapter(
     }
 
     override fun getItemCount(): Int = news.size
+
+    @SuppressLint("NotifyDataSetChanged")
+    fun addNew(new: News) {
+        news.add(new)
+        notifyDataSetChanged()
+    }
 }

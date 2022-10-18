@@ -5,4 +5,5 @@
     <string name="home">Home</string>
     <string name="library">Library</string>
     <string name="selectedLenguaje">Cambiar a inglés</string>
+    <string name="btn_guardar">Botón para guardar la noticia</string>
 </resources>

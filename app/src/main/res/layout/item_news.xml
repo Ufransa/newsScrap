@@ -25,6 +25,7 @@
         app:shapeAppearanceOverlay="@style/imageCircular" />
 
     <ImageView
+        android:id="@+id/img_guardar"
         android:layout_width="30dp"
         android:layout_height="30dp"
         app:layout_constraintBottom_toBottomOf="@+id/ivNews"
@@ -33,7 +34,8 @@
         app:layout_constraintStart_toStartOf="@+id/ivNews"
         app:layout_constraintTop_toTopOf="@+id/ivNews"
         android:src="@drawable/ic_save"
-        app:layout_constraintVertical_bias="0.068" />
+        app:layout_constraintVertical_bias="0.068"
+        android:contentDescription="@string/btn_guardar" />
 
     <TextView
         android:id="@+id/tvTituloNews"
@@ -42,7 +44,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="16dp"
-        android:text="El mapa de las luces de Navidad en España: ciudades que siguen la estela de Vigo frente a las que optan por el ahorro"
+        tools:text="El mapa de las luces de Navidad en España: ciudades que siguen la estela de Vigo frente a las que optan por el ahorro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.461"
@@ -62,7 +64,7 @@
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:fontFamily="@font/product_sans_regular"
-        android:text="La Federación Española de Municipios y Provincias (FEMP) recuerda que el pasado mayo su Junta de Gobierno aprobó una serie de iniciativas remitidas a todos los Gobiernos locales para fomentar la eficiencia energética."
+        tools:text="La Federación Española de Municipios y Provincias (FEMP) recuerda que el pasado mayo su Junta de Gobierno aprobó una serie de iniciativas remitidas a todos los Gobiernos locales para fomentar la eficiencia energética."
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
