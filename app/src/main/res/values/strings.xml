@@ -6,4 +6,9 @@
     <string name="library">Library</string>
     <string name="selectedLenguaje">Cambiar a inglés</string>
     <string name="btn_guardar">Botón para guardar la noticia</string>
+    <string name="Ajustes">setting</string>
+    <string name="settings">Ajustes</string>
+    <string name="layoutGrid">Vista Mosaico</string>
+    <string name="layoutLinear">Vista en cascada</string>
+    <string name="layoutText"> Cambiar estilo de listado </string>
 </resources>

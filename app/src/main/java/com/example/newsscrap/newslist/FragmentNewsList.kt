@@ -37,20 +37,26 @@ class FragmentNewsList : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
         initRecyclerView()
-        searchByName()
+
+        //TODO: Corregir queries
+        getNews("news")
+        getNews("news1")
+        getNews("news2")
     }
 
     //TODO corregir con la url de la api original
     @SuppressLint("NotifyDataSetChanged")
-    private fun searchByName() {
+    private fun getNews(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
             val call = getRetrofit().create(NewsApiService::class.java)
-                .getNewsList("news/news")
+                .getNewsList("news/$query")
             val newsResponse = call.body()
             activity?.runOnUiThread {
                 if (call.isSuccessful) {
-                    news = newsResponse!!
+                    news = news + newsResponse!!
+                    news = news.shuffled()
                     newsAdapter.notifyDataSetChanged()
                 } else {
                     Log.i("ERROR", "NO HA FUNCIONADO")
@@ -63,8 +69,10 @@ class FragmentNewsList : Fragment() {
     private fun initRecyclerView() {
         //Inicializamos el adapter
         newsAdapter = NewsListAdapter(news, ::listener, ::guardarNews)
+
         //Organizando la vista de la activity
         linearLayoutManager = LinearLayoutManager(activity)
+
         //Metemos adapter y layout dentro del RV
         binding.rvNewsList.apply {
             setHasFixedSize(true)
@@ -94,7 +102,6 @@ class FragmentNewsList : Fragment() {
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
-
 
 }
 
