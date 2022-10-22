@@ -1,11 +1,16 @@
 package com.example.newsscrap.data
 
+import androidx.room.Entity
+import androidx.room.PrimaryKey
+
+@Entity(tableName = "NewsEntity")
 data class News(
     var titulo: String? = null,
     var descripcion: String? = null,
     var url: String? = null,
     var imagen: String? = null,
+
+    @PrimaryKey
     val id: Long? = null,
 
-    //TODO 3: Retrofit
 )

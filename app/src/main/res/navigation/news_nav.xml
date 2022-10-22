@@ -7,12 +7,15 @@
 
     <fragment
         android:id="@+id/NewsListFragment"
-        android:name="com.example.newsscrap.newslist.NewsList"
+        android:name="com.example.newsscrap.newslist.FragmentNewsList"
         android:label="fragment_news_list"
         tools:layout="@layout/fragment_news_list">
         <action
             android:id="@+id/action_newsList_to_newsDetails"
             app:destination="@id/NewsDetailsFragment" />
+        <action
+            android:id="@+id/action_NewsListFragment_to_fragmentNewsSave"
+            app:destination="@id/fragmentNewsSave" />
     </fragment>
     <fragment
         android:id="@+id/NewsDetailsFragment"
@@ -28,7 +31,27 @@
         android:id="@+id/fragmentNewsSave"
         android:name="com.example.newsscrap.newssave.FragmentNewsSave"
         android:label="fragment_news_save"
-        tools:layout="@layout/fragment_news_save" />
+        tools:layout="@layout/fragment_news_save" >
+        <action
+            android:id="@+id/action_fragmentNewsSave_to_NewsDetailsFragment"
+            app:destination="@id/NewsDetailsFragment" />
+        <argument
+            android:name="titulo"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="url"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="imagen"
+            app:argType="string"
+            app:nullable="true" />
+        <argument
+            android:name="descripcion"
+            app:argType="string"
+            app:nullable="true" />
+    </fragment>
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.newsscrap.settings.FragmentSettings"

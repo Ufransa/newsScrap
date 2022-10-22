@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsscrap.data.News
 import com.example.newsscrap.data.NewsApiService
+import com.example.newsscrap.data.NewsApplication
 import com.example.newsscrap.databinding.FragmentNewsListBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -20,12 +21,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
 private lateinit var binding: FragmentNewsListBinding
-private lateinit var newsAdapter: NewsAdapter
+private lateinit var newsAdapter: NewsListAdapter
 private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 private var news : List<News?> = listOf<News>()
 
-
-class NewsList : Fragment() {
+class FragmentNewsList : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -68,7 +68,7 @@ class NewsList : Fragment() {
 
     private fun initRecyclerView() {
         //Inicializamos el adapter
-        newsAdapter = NewsAdapter(news, ::listener)
+        newsAdapter = NewsListAdapter(news, ::listener, ::guardarNews)
 
         //Organizando la vista de la activity
         linearLayoutManager = LinearLayoutManager(activity)
@@ -81,11 +81,21 @@ class NewsList : Fragment() {
         }
     }
 
-    private fun listener(url: String?){
-        findNavController().navigate(NewsListDirections.actionNewsListToNewsDetails(url))
+    private fun guardarNews(news: News?){  //TODO: Guardar en BBDD room
+        Thread{
+            NewsApplication.database.NewsDao().addNew(news)
+        }.start()
     }
 
-    //TODO 5: Retrofit (corregir con la llamada original)
+
+    private fun listener(url: String?){
+        findNavController()
+            .navigate(FragmentNewsListDirections.actionNewsListToNewsDetails
+                (url))
+    }
+
+
+    //TODO corregir con la llamada original
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://634694e3745bd0dbd3811262.mockapi.io/")

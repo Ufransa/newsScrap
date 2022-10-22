@@ -14,7 +14,7 @@ class FragmentSettings : Fragment(){
 
     //TODO: Cambio de Layout 3
     //private lateinit var listbinding: FragmentNewsListBinding
-
+    
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
         binding = FragmentSettingsBinding.inflate(inflater, container, false)
@@ -25,6 +25,19 @@ class FragmentSettings : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         switchOnClick()
+    }
+
+    @Suppress("DEPRECATION")
+    private fun updateResourse(language: String) {
+        val displayMetrics = resources.displayMetrics
+        val config = resources.configuration
+
+        config.setLocale(Locale(language))
+        resources.updateConfiguration(config, displayMetrics)
+
+//      config.setLocale(Locale(language))
+//      resources.updateConfiguration(config, displayMetrics)
+    }
 
         //TODO: Para implementar cuando sea funcional
         // Cambio de Layout 2
