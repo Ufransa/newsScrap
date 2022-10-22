@@ -14,8 +14,6 @@ class MainActivity : AppCompatActivity() {
         mBinding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(mBinding.root)
         setupBottomNav()
-
-
     }
 
     private fun setupBottomNav(){

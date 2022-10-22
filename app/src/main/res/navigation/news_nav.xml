@@ -7,12 +7,15 @@
 
     <fragment
         android:id="@+id/NewsListFragment"
-        android:name="com.example.newsscrap.newslist.NewsList"
+        android:name="com.example.newsscrap.newslist.FragmentNewsList"
         android:label="fragment_news_list"
         tools:layout="@layout/fragment_news_list">
         <action
             android:id="@+id/action_newsList_to_newsDetails"
             app:destination="@id/NewsDetailsFragment" />
+        <action
+            android:id="@+id/action_NewsListFragment_to_fragmentNewsSave"
+            app:destination="@id/fragmentNewsSave" />
     </fragment>
     <fragment
         android:id="@+id/NewsDetailsFragment"
@@ -53,9 +56,5 @@
         android:id="@+id/settingsFragment"
         android:name="com.example.newsscrap.settings.FragmentSettings"
         android:label="fragment_settings"
-        tools:layout="@layout/fragment_settings" >
-        <action
-            android:id="@+id/action_settingsFragment_to_fragmentNewsSave"
-            app:destination="@id/fragmentNewsSave" />
-    </fragment>
+        tools:layout="@layout/fragment_settings" />
 </navigation>

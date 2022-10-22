@@ -36,6 +36,7 @@ class NewsListAdapter(
 
         binding.imgGuardar.setOnClickListener {
             guardarNews(new)
+            binding.imgGuardar.setImageResource(R.drawable.ic_check)
         }
     }
 
@@ -46,6 +47,7 @@ class NewsListAdapter(
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         private val binding = ItemNewsBinding.bind(view)
         fun bind(news: News?) {
+            Log.i("Noticia", news.toString())
             binding.tvTituloNews.text = news?.titulo
             binding.tvDescripcionNews.text = news?.descripcion
         }

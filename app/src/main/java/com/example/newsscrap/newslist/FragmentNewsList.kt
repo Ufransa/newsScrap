@@ -10,11 +10,10 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import com.example.newsscrap.R
 import com.example.newsscrap.data.News
 import com.example.newsscrap.data.NewsApiService
+import com.example.newsscrap.data.NewsApplication
 import com.example.newsscrap.databinding.FragmentNewsListBinding
-import com.example.newsscrap.newssave.FragmentNewsSave
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -26,8 +25,7 @@ private lateinit var newsAdapter: NewsListAdapter
 private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 private var news : List<News?> = listOf<News>()
 
-
-class NewsList : Fragment() {
+class FragmentNewsList : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -75,27 +73,21 @@ class NewsList : Fragment() {
         }
     }
 
-    private fun guardarNews(news: News?){
-        val args = Bundle()
-        args.putString("titulo", news?.titulo)
-        args.putString("descripcion", news?.descripcion)
-        args.putString("url", news?.url)
-        args.putString("imagen", news?.imagen)
-
-        val fragment = FragmentNewsSave()
-        if (args!=null) fragment.arguments = args
-
-        val fragmentManager = activity?.supportFragmentManager  //creamos una instancia de fragment manager
-        val fragmentTransaction = fragmentManager?.beginTransaction()
-        fragmentTransaction?.commit()
-
+    private fun guardarNews(news: News?){  //TODO: Guardar en BBDD room
+        Thread{
+            NewsApplication.database.NewsDao().addNew(news)
+        }.start()
     }
+
 
     private fun listener(url: String?){
-        findNavController().navigate(NewsListDirections.actionNewsListToNewsDetails(url))
+        findNavController()
+            .navigate(FragmentNewsListDirections.actionNewsListToNewsDetails
+                (url))
     }
 
-    //TODO 5: Retrofit (corregir con la llamada original)
+
+    //TODO corregir con la llamada original
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
             .baseUrl("https://634694e3745bd0dbd3811262.mockapi.io/")

@@ -10,7 +10,7 @@ import com.example.newsscrap.data.News
 import com.example.newsscrap.databinding.ItemNewsSaveBinding
 
 class NewsSaveAdapter(
-    private val news: MutableList<News?>
+    private var news: MutableList<News?>
 ) : RecyclerView.Adapter<NewsSaveAdapter.ViewHolder>() {
 
     class ViewHolder(private val binding: ItemNewsSaveBinding): RecyclerView.ViewHolder(binding.root){
@@ -40,8 +40,8 @@ class NewsSaveAdapter(
     override fun getItemCount(): Int = news.size
 
     @SuppressLint("NotifyDataSetChanged")
-    fun addNew(new: News) {
-        news.add(new)
+    fun addNews(news: MutableList<News?>) {
+        this.news = news
         notifyDataSetChanged()
     }
 }

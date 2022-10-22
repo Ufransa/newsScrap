@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import com.example.newsscrap.R
 import com.example.newsscrap.databinding.FragmentNewsDetailsBinding
 
 class FragmentNewsDetails : Fragment() {
