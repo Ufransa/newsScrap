@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".settings.SettingsFragment">
+    tools:context=".settings.FragmentSettings">
 
     <TextView
         android:text="@string/settings"

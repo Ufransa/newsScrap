@@ -1,12 +1,9 @@
 package com.example.newsscrap
 
-import android.content.Intent
 import android.os.Bundle
-import android.widget.Button
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import com.example.newsscrap.databinding.ActivityMainBinding
-import com.example.newsscrap.settings.SettingsFragment
 
 class MainActivity : AppCompatActivity() {
 

@@ -31,7 +31,7 @@
         tools:layout="@layout/fragment_news_save" />
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.newsscrap.settings.SettingsFragment"
+        android:name="com.example.newsscrap.settings.FragmentSettings"
         android:label="fragment_settings"
         tools:layout="@layout/fragment_settings" />
 </navigation>

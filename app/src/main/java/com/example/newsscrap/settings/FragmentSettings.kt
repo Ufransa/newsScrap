@@ -5,13 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.newsscrap.databinding.FragmentNewsListBinding
 import com.example.newsscrap.databinding.FragmentSettingsBinding
 import java.util.*
 
-class SettingsFragment : Fragment(){
+class FragmentSettings : Fragment(){
 
     private lateinit var binding: FragmentSettingsBinding
 
