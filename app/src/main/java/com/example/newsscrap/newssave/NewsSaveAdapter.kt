@@ -8,7 +8,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.example.newsscrap.data.News
 import com.example.newsscrap.data.NewsApplication
-import com.example.newsscrap.databinding.ItemNewsBinding
 import com.example.newsscrap.databinding.ItemNewsSaveBinding
 
 class NewsSaveAdapter(
