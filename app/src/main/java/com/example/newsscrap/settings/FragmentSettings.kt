@@ -35,9 +35,8 @@ class FragmentSettings : Fragment(){
         config.setLocale(Locale(language))
         resources.updateConfiguration(config, displayMetrics)
 
-//      config.setLocale(Locale(language))
-//      resources.updateConfiguration(config, displayMetrics)
-    }
+        //config.setLocale(Locale(language))
+        //resources.updateConfiguration(config, displayMetrics)
 
         //TODO: Para implementar cuando sea funcional
         // Cambio de Layout 2
@@ -45,16 +44,6 @@ class FragmentSettings : Fragment(){
         // changeLayout()
     }
 
-    private fun updateResourse(language: String) {
-        val res = resources
-        val displayMetrics = res.displayMetrics
-        val config = resources.configuration
-
-        config.setLocale(Locale(language))
-        res.updateConfiguration(config, displayMetrics)
-        // config.locale = Locale(language)
-        // resources.updateConfiguration(config, displayMetrics)
-    }
 
     //Cambio de idioma con switch
     private fun switchOnClick(){
@@ -79,4 +68,11 @@ class FragmentSettings : Fragment(){
             }
         }
     }*/
+
+
+
 }
+
+
+
+

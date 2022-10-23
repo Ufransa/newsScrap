@@ -9,8 +9,9 @@ data class News(
     var descripcion: String? = null,
     var url: String? = null,
     var imagen: String? = null,
-
-    @PrimaryKey
     val id: Long? = null,
+
+    @PrimaryKey(autoGenerate = true)
+    val idNew: Long? = null,
 
 )

@@ -46,6 +46,7 @@ class FragmentNewsList : Fragment() {
         getNews("news2")
     }
 
+
     //TODO corregir con la url de la api original
     @SuppressLint("NotifyDataSetChanged")
     private fun getNews(query: String) {
