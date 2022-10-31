@@ -25,6 +25,11 @@ class FragmentSettings : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         switchOnClick()
+
+        //TODO: Para implementar cuando sea funcional
+        // Cambio de Layout 2
+
+        // changeLayout()
     }
 
     @Suppress("DEPRECATION")
@@ -35,24 +40,7 @@ class FragmentSettings : Fragment(){
         config.setLocale(Locale(language))
         resources.updateConfiguration(config, displayMetrics)
 
-//      config.setLocale(Locale(language))
-//      resources.updateConfiguration(config, displayMetrics)
-    }
-
-        //TODO: Para implementar cuando sea funcional
-        // Cambio de Layout 2
-
-        // changeLayout()
-    }
-
-    private fun updateResourse(language: String) {
-        val res = resources
-        val displayMetrics = res.displayMetrics
-        val config = resources.configuration
-
-        config.setLocale(Locale(language))
-        res.updateConfiguration(config, displayMetrics)
-        // config.locale = Locale(language)
+        // config.setLocale(Locale(language))
         // resources.updateConfiguration(config, displayMetrics)
     }
 
@@ -67,7 +55,6 @@ class FragmentSettings : Fragment(){
         }
     }
 
-
     //Cambio de disposición de la información
     //TODO: Aun no funcional Cambio de Layout 1
     /*private fun changeLayout(){
@@ -79,4 +66,5 @@ class FragmentSettings : Fragment(){
             }
         }
     }*/
+
 }
