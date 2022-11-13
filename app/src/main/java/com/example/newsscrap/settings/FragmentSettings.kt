@@ -5,15 +5,21 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CompoundButton.OnCheckedChangeListener
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.example.newsscrap.databinding.FragmentNewsListBinding
 import com.example.newsscrap.databinding.FragmentSettingsBinding
+import com.example.newsscrap.newslist.NewsListAdapter
 import java.util.*
 
 class FragmentSettings : Fragment(){
 
     private lateinit var binding: FragmentSettingsBinding
+    private lateinit var listBinding: FragmentNewsListBinding
+    private lateinit var newsAdapter: NewsListAdapter
+    private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 
-    //TODO: Cambio de Layout 3
-    //private lateinit var listbinding: FragmentNewsListBinding
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -25,11 +31,8 @@ class FragmentSettings : Fragment(){
         super.onViewCreated(view, savedInstanceState)
 
         switchOnClick()
-
-        //TODO: Para implementar cuando sea funcional
-        // Cambio de Layout 2
-
-        // changeLayout()
+        // TODO: implementar cambio de layout
+        //changeToGridLayout()
     }
 
     @Suppress("DEPRECATION")
@@ -39,9 +42,6 @@ class FragmentSettings : Fragment(){
 
         config.setLocale(Locale(language))
         resources.updateConfiguration(config, displayMetrics)
-
-        // config.setLocale(Locale(language))
-        // resources.updateConfiguration(config, displayMetrics)
     }
 
     //Cambio de idioma con switch
@@ -55,16 +55,8 @@ class FragmentSettings : Fragment(){
         }
     }
 
-    //Cambio de disposición de la información
-    //TODO: Aun no funcional Cambio de Layout 1
-    /*private fun changeLayout(){
-        binding.rgLayout.setOnClickListener(){
-            if(binding.rbGrid.isChecked){
-                listbinding.rvNewsList.layoutManager = GridLayoutManager(context, 3)
-            } else {
-                listbinding.rvNewsList.layoutManager = LinearLayoutManager(context)
-            }
-        }
-    }*/
+    // TODO: implementar cambio de layout
+     private fun onCheckedChanged(){
+    }
 
 }

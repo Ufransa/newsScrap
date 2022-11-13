@@ -8,5 +8,7 @@
     <string name="layoutGrid">Grid Layout</string>
     <string name="layoutLinear">Linear Layout</string>
     <string name="layoutText"> Change the slyle of the list </string>
+    <string name="open">Open</string>
+    <string name="close">Close</string>
 
 </resources>
