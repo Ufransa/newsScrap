@@ -70,4 +70,10 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
+
+//    private fun setupTopNav(){
+//
+//    }
+
+
 }

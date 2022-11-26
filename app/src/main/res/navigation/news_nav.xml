@@ -13,9 +13,6 @@
         <action
             android:id="@+id/action_newsList_to_newsDetails"
             app:destination="@id/NewsDetailsFragment" />
-        <action
-            android:id="@+id/action_NewsListFragment_to_fragmentNewsSave"
-            app:destination="@id/fragmentNewsSave" />
     </fragment>
     <fragment
         android:id="@+id/NewsDetailsFragment"
@@ -35,22 +32,6 @@
         <action
             android:id="@+id/action_fragmentNewsSave_to_NewsDetailsFragment"
             app:destination="@id/NewsDetailsFragment" />
-        <argument
-            android:name="titulo"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="url"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="imagen"
-            app:argType="string"
-            app:nullable="true" />
-        <argument
-            android:name="descripcion"
-            app:argType="string"
-            app:nullable="true" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

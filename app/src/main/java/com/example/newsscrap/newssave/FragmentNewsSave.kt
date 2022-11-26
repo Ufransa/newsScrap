@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsscrap.data.News
@@ -15,11 +16,8 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-//import org.jetbrains.anko.doAsync
-
 
 class FragmentNewsSave : Fragment() {
-
 
     private lateinit var binding: FragmentNewsSaveBinding
     private lateinit var newsSaveAdapter: NewsSaveAdapter
@@ -55,13 +53,19 @@ class FragmentNewsSave : Fragment() {
 
 
     private fun initRecycler() {
-        newsSaveAdapter = NewsSaveAdapter(news)  //TODO, añadir la lista sacada de los argumentos, crear boton guardar para ello
+        newsSaveAdapter = NewsSaveAdapter(news, ::listener)  //TODO, añadir la lista sacada de los argumentos, crear boton guardar para ello
         linearLayoutManager = LinearLayoutManager(activity)
         binding.rvNewsSave.apply {
             setHasFixedSize(true)
             layoutManager = linearLayoutManager
             adapter = newsSaveAdapter
         }
+    }
+
+
+    private fun listener(url: String?){
+        findNavController()
+            .navigate(FragmentNewsSaveDirections.actionFragmentNewsSaveToNewsDetailsFragment(url))
     }
 
 }
