@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">newsScrap</string>
-    <!-- TOD: Remove or change this placeholder text -->
     <string name="home">Home</string>
     <string name="library">Library</string>
-    <string name="selectedLenguaje">Change to English</string>
-    <string name="btn_guardar">Buttom to save the new</string>
-    <string name="Ajustes">Setting</string>
-    <string name="layoutGrid"> Mosaic view</string>
-    <string name="layoutLinear">Cascade view</string>
-    <string name="layoutText">Change list style</string>
-    <string name="btn_borrar_noticia">Buttom to delete new</string>
+    <string name="selectedLenguaje">Change to español</string>
+    <string name="Ajustes">Settings</string>
+    <string name="Open">Open</string>
+    <string name="Close">Close</string>
+    <string name="btn_borrar_noticia">Botón para borrar noticia</string>
+    <string name="btn_guardar">Button to save the new</string>
+
 </resources>

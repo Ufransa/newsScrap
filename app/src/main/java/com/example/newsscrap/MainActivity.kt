@@ -2,7 +2,6 @@ package com.example.newsscrap
 
 import android.os.Bundle
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
@@ -10,7 +9,7 @@ import com.example.newsscrap.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
 
-    lateinit var toggle : ActionBarDrawerToggle
+    private lateinit var toggle : ActionBarDrawerToggle
     private lateinit var mBinding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,7 +22,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun setUpDrawerToggle(){
-        toggle = ActionBarDrawerToggle(this, mBinding.drawerLayout, R.string.open, R.string.close)
+        toggle = ActionBarDrawerToggle(this, mBinding.drawerLayout, R.string.Open, R.string.Close)
         mBinding.drawerLayout.addDrawerListener(toggle)
         toggle.syncState()
 
@@ -69,11 +68,6 @@ class MainActivity : AppCompatActivity() {
             true
         }
     }
-
-
-//    private fun setupTopNav(){
-//
-//    }
 
 
 }

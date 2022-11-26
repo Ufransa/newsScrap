@@ -8,7 +8,7 @@
     tools:context=".settings.FragmentSettings">
 
     <TextView
-        android:text="@string/settings"
+        android:text="@string/Ajustes"
         android:gravity="center"
         android:textSize="50sp"
         android:id="@+id/tvSettings"

@@ -7,8 +7,7 @@
     <string name="selectedLenguaje">Cambiar a inglés</string>
     <string name="btn_guardar">Botón para guardar la noticia</string>
     <string name="Ajustes">Ajustes</string>
-    <string name="layoutGrid">Vista Mosaico</string>
-    <string name="layoutLinear">Vista en cascada</string>
-    <string name="layoutText"> Cambiar estilo de listado </string>
     <string name="btn_borrar_noticia">Botón para borrar noticia</string>
+    <string name="Open">Abrir</string>
+    <string name="Close">Cerrar</string>
 </resources>

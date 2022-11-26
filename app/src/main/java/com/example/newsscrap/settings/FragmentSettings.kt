@@ -32,20 +32,7 @@ class FragmentSettings : Fragment(){
 
         config.setLocale(Locale(language))
         resources.updateConfiguration(config, displayMetrics)
-
-
-        //config.setLocale(Locale(language))
-        //resources.updateConfiguration(config, displayMetrics)
-
-        //TODO: Para implementar cuando sea funcional
-        // Cambio de Layout 2
-
-        // changeLayout()
     }
-
-
-    }
-
 
     //Cambio de idioma con switch
     private fun switchOnClick(){
@@ -57,28 +44,7 @@ class FragmentSettings : Fragment(){
             }
         }
     }
-
-
-
-    //Cambio de disposición de la información
-    //TODO: Aun no funcional Cambio de Layout 1
-    /*private fun changeLayout(){
-        binding.rgLayout.setOnClickListener(){
-            if(binding.rbGrid.isChecked){
-                listbinding.rvNewsList.layoutManager = GridLayoutManager(context, 3)
-            } else {
-                listbinding.rvNewsList.layoutManager = LinearLayoutManager(context)
-            }
-        }
-    }*/
-
-
-
+    
 }
 
-
-
-
-
-}
 
