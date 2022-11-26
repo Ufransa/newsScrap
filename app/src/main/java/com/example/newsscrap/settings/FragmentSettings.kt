@@ -12,8 +12,6 @@ class FragmentSettings : Fragment(){
 
     private lateinit var binding: FragmentSettingsBinding
 
-    //TODO: Cambio de Layout 3
-    //private lateinit var listbinding: FragmentNewsListBinding
     
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View {
@@ -35,6 +33,7 @@ class FragmentSettings : Fragment(){
         config.setLocale(Locale(language))
         resources.updateConfiguration(config, displayMetrics)
 
+
         //config.setLocale(Locale(language))
         //resources.updateConfiguration(config, displayMetrics)
 
@@ -42,6 +41,9 @@ class FragmentSettings : Fragment(){
         // Cambio de Layout 2
 
         // changeLayout()
+    }
+
+
     }
 
 
@@ -55,6 +57,7 @@ class FragmentSettings : Fragment(){
             }
         }
     }
+
 
 
     //Cambio de disposición de la información
@@ -75,4 +78,7 @@ class FragmentSettings : Fragment(){
 
 
 
+
+
+}
 

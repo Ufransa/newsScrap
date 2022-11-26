@@ -10,4 +10,7 @@
     <string name="layoutLinear">Vista en cascada</string>
     <string name="layoutText"> Cambiar estilo de listado </string>
     <string name="btn_borrar_noticia">Botón para borrar noticia</string>
+    <string name="open">Abierto</string>
+    <string name="close">Cerrado</string>
+
 </resources>

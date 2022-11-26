@@ -25,7 +25,7 @@ private lateinit var newsAdapter: NewsListAdapter
 private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 private var news : List<News?> = listOf<News>()
 
-class FragmentNewsList : Fragment() {
+class FragmentNewsList : Fragment(){
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,6 +44,7 @@ class FragmentNewsList : Fragment() {
         getNews("news")
         getNews("news1")
         getNews("news2")
+
     }
 
 
