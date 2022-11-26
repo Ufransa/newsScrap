@@ -8,7 +8,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.newsscrap.data.News
@@ -26,7 +25,7 @@ private lateinit var newsAdapter: NewsListAdapter
 private lateinit var linearLayoutManager: RecyclerView.LayoutManager
 private var news : List<News?> = listOf<News>()
 
-class FragmentNewsList : Fragment() {
+class FragmentNewsList : Fragment(){
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,6 +44,7 @@ class FragmentNewsList : Fragment() {
         getNews("news")
         getNews("news1")
         getNews("news2")
+
     }
 
     //TODO corregir con la url de la api original

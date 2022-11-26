@@ -23,49 +23,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/selectedLenguaje"
-        app:layout_constraintBottom_toTopOf="@+id/rgLayout"
         app:layout_constraintEnd_toEndOf="@+id/tvSettings"
         app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="@+id/tvSettings"
         app:layout_constraintTop_toBottomOf="@+id/tvSettings"
         app:layout_constraintVertical_bias="0.058"
         tools:ignore="UseSwitchCompatOrMaterialXml" />
-
-    <TextView
-        android:id="@+id/tvLayoutText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/layoutText"
-        android:textAlignment="center"
-        app:layout_constraintBottom_toTopOf="@+id/rgLayout"
-        app:layout_constraintEnd_toEndOf="@+id/sLan"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/sLan"
-        app:layout_constraintTop_toBottomOf="@+id/sLan"
-        app:layout_constraintVertical_bias="0.985" />
-
-    <RadioGroup
-        android:id="@+id/rgLayout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="@+id/tvLayoutText"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="@+id/tvLayoutText">
-
-        <RadioButton
-            android:id="@+id/rbGrid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/layoutGrid" />
-
-        <RadioButton
-            android:id="@+id/rbLinear"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/layoutLinear" />
-    </RadioGroup>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

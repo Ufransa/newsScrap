@@ -5,9 +5,6 @@
     <string name="library">Libreria</string>
     <string name="selectedLenguaje">Cambiar a inglés</string>
     <string name="settings">Ajustes</string>
-    <string name="layoutGrid">Vista Mosaico</string>
-    <string name="layoutLinear">Vista en cascada</string>
-    <string name="layoutText"> Cambiar estilo de listado </string>
     <string name="open">Abierto</string>
     <string name="close">Cerrado</string>
 </resources>
