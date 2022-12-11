@@ -7,6 +7,6 @@ import androidx.room.RoomDatabase
     entities = [News::class],
     version = 1
 )
-abstract class NewsDatabase: RoomDatabase() {
+abstract class NewsDatabase : RoomDatabase() {
     abstract fun NewsDao(): NewsDao
 }

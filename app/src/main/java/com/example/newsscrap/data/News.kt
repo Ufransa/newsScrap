@@ -5,13 +5,14 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "NewsEntity")
 data class News(
+    val id: Int? = null,
     var titulo: String? = null,
     var descripcion: String? = null,
     var url: String? = null,
     var imagen: String? = null,
-    val id: Long? = null,
+
 
     @PrimaryKey(autoGenerate = true)
-    val idNew: Long? = null,
+    val idNew: Int? = null,
 
-)
+    )

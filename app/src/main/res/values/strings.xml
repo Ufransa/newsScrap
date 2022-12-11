@@ -1,13 +1,19 @@
 <resources>
-    <string name="app_name">newsScrap</string>
+    <string name="app_name"> </string>
     <!-- TOD: Remove or change this placeholder text -->
     <string name="home">Home</string>
     <string name="library">Library</string>
     <string name="selectedLenguaje">Change to english</string>
     <string name="btn_guardar">Button to save the new</string>
-    <string name="Ajustes">setting</string>
+    <string name="Ajustes">SETTINGS</string>
     <string name="btn_borrar_noticia">Button to delete the new</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
+    <string name="Theme">CHANGE OF BACKGROUND</string>
+    <string name="Languaje">CHANGE OF LANGUAJE</string>
+    <string name="btrosa">Pink</string>
+    <string name="btoscuro">Dark</string>
+    <string name="btbase">Default</string>
+    <string name="cd">cd</string>
 
 </resources>

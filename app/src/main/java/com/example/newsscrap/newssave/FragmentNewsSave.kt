@@ -5,19 +5,21 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dolatkia.animatedThemeManager.AppTheme
+import com.dolatkia.animatedThemeManager.ThemeFragment
 import com.example.newsscrap.data.News
 import com.example.newsscrap.data.NewsApplication
 import com.example.newsscrap.databinding.FragmentNewsSaveBinding
+import com.example.newsscrap.themes.MyAppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
 
-class FragmentNewsSave : Fragment() {
+class FragmentNewsSave : ThemeFragment() {
 
     private lateinit var binding: FragmentNewsSaveBinding
     private lateinit var newsSaveAdapter: NewsSaveAdapter
@@ -30,7 +32,7 @@ class FragmentNewsSave : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewsSaveBinding.inflate(inflater,container,false)
+        binding = FragmentNewsSaveBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -45,7 +47,7 @@ class FragmentNewsSave : Fragment() {
     private fun recogerArgumentos() {
         CoroutineScope(Dispatchers.IO).launch {
             news = NewsApplication.database.NewsDao().getAllNews()
-            activity?.runOnUiThread{
+            activity?.runOnUiThread {
                 newsSaveAdapter.addNews(news)
             }
         }
@@ -53,7 +55,10 @@ class FragmentNewsSave : Fragment() {
 
 
     private fun initRecycler() {
-        newsSaveAdapter = NewsSaveAdapter(news, ::listener)  //TODO, añadir la lista sacada de los argumentos, crear boton guardar para ello
+        newsSaveAdapter = NewsSaveAdapter(
+            news,
+            ::listener
+        )
         linearLayoutManager = LinearLayoutManager(activity)
         binding.rvNewsSave.apply {
             setHasFixedSize(true)
@@ -63,9 +68,19 @@ class FragmentNewsSave : Fragment() {
     }
 
 
-    private fun listener(url: String?){
+    private fun listener(url: String?) {
         findNavController()
             .navigate(FragmentNewsSaveDirections.actionFragmentNewsSaveToNewsDetailsFragment(url))
     }
 
+    // Funcionality change of theme
+    override fun syncTheme(appTheme: AppTheme) {
+        val myAppTheme = appTheme as MyAppTheme
+        context?.let {
+
+            //set background color
+            binding.root.setBackgroundColor(myAppTheme.activityBackgroundColor(it))
+
+        }
+    }
 }

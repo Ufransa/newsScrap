@@ -1,89 +1,90 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+
+<androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_below="@id/tvTituloNews"
+    app:cardBackgroundColor="@color/background_default"
+    app:cardCornerRadius="8dp"
+    app:cardMaxElevation="10dp"
+    app:cardUseCompatPadding="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout"
+        android:layout_width="match_parent"
+        android:layout_height="126dp">
 
 
-    <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/imgNews"
-        android:layout_width="0dp"
-        android:layout_height="240dp"
-        android:layout_marginStart="14dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="14dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/test"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.029"
-        app:shapeAppearanceOverlay="@style/imageCircular" />
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/imgNews"
+            android:layout_width="124dp"
+            android:layout_height="70dp"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="14dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/test"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0"
+            app:shapeAppearanceOverlay="@style/imageCircular" />
 
-    <ImageView
-        android:id="@+id/btn_borrar"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        app:layout_constraintBottom_toBottomOf="@+id/imgNews"
-        app:layout_constraintEnd_toEndOf="@+id/imgNews"
-        app:layout_constraintHorizontal_bias="0.966"
-        app:layout_constraintStart_toStartOf="@+id/imgNews"
-        app:layout_constraintTop_toTopOf="@+id/imgNews"
-        android:src="@drawable/ic_delete"
-        app:layout_constraintVertical_bias="0.068"
-        android:contentDescription="@string/btn_borrar_noticia" />
+        <ImageView
+            android:id="@+id/btnBorrar"
+            android:layout_width="33dp"
+            android:layout_height="25dp"
+            android:contentDescription="@string/btn_borrar_noticia"
+            android:src="@drawable/ic_delete"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.696"
+            app:layout_constraintStart_toEndOf="@+id/tvDescripcion"
+            app:layout_constraintTop_toBottomOf="@+id/imgNews"
+            app:layout_constraintVertical_bias="0.202" />
 
-    <TextView
-        android:id="@+id/tvTituloNews"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        tools:text="El mapa de las luces de Navidad en España: ciudades que siguen la estela de Vigo frente a las que optan por el ahorro"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imgNews"
-        android:fontFamily="@font/product_sans_regular"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintVertical_bias="0.0" />
+        <TextView
+            android:id="@+id/tvTituloNews"
+            android:layout_width="234dp"
+            android:layout_height="84dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginEnd="14dp"
+            android:fontFamily="@font/fuente_textos"
+            android:textColor="#000"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            app:flow_verticalBias="0.0"
+            app:layout_constraintBottom_toTopOf="@id/tvDescripcion"
+            app:layout_constraintEnd_toStartOf="@+id/imgNews"
+            app:layout_constraintHorizontal_bias="0.555"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="El mapa de las luces de Navidad en España" />
 
-    <TextView
-        android:id="@+id/tvDescripcion"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="16dp"
-        android:fontFamily="@font/product_sans_regular"
-        tools:text="La Federación Española de Municipios y Provincias (FEMP) recuerda que el pasado mayo su Junta de Gobierno aprobó una serie de iniciativas remitidas a todos los Gobiernos locales para fomentar la eficiencia energética."
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTituloNews"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <View
-        android:id="@+id/divider"
-        android:layout_width="409dp"
-        android:layout_height="1dp"
-        android:layout_marginTop="8dp"
-        android:background="?android:attr/listDivider"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvDescripcion"
-        app:layout_constraintVertical_bias="1.0" />
+        <TextView
+            android:id="@+id/tvDescripcion"
+            android:layout_width="234dp"
+            android:layout_height="32dp"
+            android:layout_marginEnd="122dp"
+            android:ellipsize="end"
+            android:fontFamily="@font/fuente_textos"
+            android:maxLines="2"
+            android:textColor="#000"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="@+id/imgNews"
+            app:layout_constraintHorizontal_bias="0.294"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.936"
+            tools:text="La Federación Española de Municipios y Provincias (FEMP) recuerda que el pasado mayo su Junta de Gobierno aprobó una serie de iniciativas remitidas a todos los Gobiernos locales para fomentar la eficiencia energética." />
 
 
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <string name="app_name">newsScrap</string>
+<resources>
+    <string name="app_name"> </string>
     <string name="home">Home</string>
     <string name="library">Library</string>
-    <string name="selectedLenguaje">Change to español</string>
-    <string name="Ajustes">Settings</string>
+    <string name="selectedLenguaje">Change to spanish</string>
+    <string name="Ajustes">SETTINGS</string>
     <string name="Open">Open</string>
     <string name="Close">Close</string>
     <string name="btn_borrar_noticia">Botón para borrar noticia</string>
     <string name="btn_guardar">Button to save the new</string>
+    <string name="Theme">CHANGE OF BACKGROUND</string>
+    <string name="Languaje">CHANGE OF LANGUAJE</string>
+    <string name="btrosa">Pink</string>
+    <string name="btoscuro">Dark</string>
+    <string name="btbase">Default</string>
+    <string name="cd">cd</string>
+
 
 </resources>

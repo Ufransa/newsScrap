@@ -6,53 +6,60 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.dolatkia.animatedThemeManager.AppTheme
+import com.dolatkia.animatedThemeManager.ThemeFragment
 import com.example.newsscrap.data.News
 import com.example.newsscrap.data.NewsApiService
 import com.example.newsscrap.data.NewsApplication
 import com.example.newsscrap.databinding.FragmentNewsListBinding
+import com.example.newsscrap.themes.MyAppTheme
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
+@SuppressLint("StaticFieldLeak")
 private lateinit var binding: FragmentNewsListBinding
 private lateinit var newsAdapter: NewsListAdapter
 private lateinit var linearLayoutManager: RecyclerView.LayoutManager
-private var news : List<News?> = listOf<News>()
+private var news: List<News?> = listOf<News>()
 
-class FragmentNewsList : Fragment(){
+class FragmentNewsList : ThemeFragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentNewsListBinding.inflate(inflater, container, false)
+        binding = FragmentNewsListBinding.inflate(inflater,
+            container,
+            false)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(view: View,
+                               savedInstanceState:
+                               Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         initRecyclerView()
 
-        //TODO: Corregir queries
-        getNews("news")
-        getNews("news1")
-        getNews("news2")
+        getNews("anait/")
+        getNews("publico/")
+        getNews("xataka/")
 
     }
 
-    //TODO corregir con la url de la api original
+    //Recoger los datos de la API y lanzarlos mezclados
     @SuppressLint("NotifyDataSetChanged")
     private fun getNews(query: String) {
         CoroutineScope(Dispatchers.IO).launch {
-            val call = getRetrofit().create(NewsApiService::class.java)
-                .getNewsList("news/$query")
+            val call = getRetrofit()
+                .create(NewsApiService::class.java)
+                .getNewsList("noticias/$query")
             val newsResponse = call.body()
             activity?.runOnUiThread {
                 if (call.isSuccessful) {
@@ -81,27 +88,36 @@ class FragmentNewsList : Fragment(){
         }
     }
 
-    private fun guardarNews(news: News?){  //TODO: Guardar en BBDD room
-        Thread{
+    private fun guardarNews(news: News?) {
+        Thread {
             NewsApplication.database.NewsDao().addNew(news)
         }.start()
     }
 
-
-    private fun listener(url: String?){
+    private fun listener(url: String?) {
         findNavController()
-            .navigate(FragmentNewsListDirections.actionNewsListToNewsDetails
-                (url))
+            .navigate(
+                FragmentNewsListDirections.actionNewsListToNewsDetails
+                    (url)
+            )
     }
 
-
-    //TODO corregir con la llamada original
+    //Llamada a la API
     private fun getRetrofit(): Retrofit {
         return Retrofit.Builder()
-            .baseUrl("https://634694e3745bd0dbd3811262.mockapi.io/")
+            .baseUrl("http://10.0.2.2:8000/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
     }
 
+    //Sincronizar los colores
+    override fun syncTheme(appTheme: AppTheme) {
+        val myAppTheme = appTheme as MyAppTheme
+        context?.let {
+
+            //Implementar cambio de color de root
+            binding.root.setBackgroundColor(myAppTheme.activityBackgroundColor(it))
+        }
+    }
 }
 

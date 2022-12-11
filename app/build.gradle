@@ -54,19 +54,17 @@ dependencies {
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    implementation("androidx.fragment:fragment-ktx:1.5.4")
 
 
 
 
-    //Retrofit TODO 1: Retrofit
+    //Retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
-    //Corutines TODO 2: Retrofit
+    //Corutines
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.1'
-
-    //Picasso
-    implementation "com.squareup.picasso:picasso:2.71828"
 
     //Glide
     implementation 'com.github.bumptech.glide:glide:4.13.2'
@@ -75,16 +73,14 @@ dependencies {
     //Navigation Drawer
     implementation 'androidx.drawerlayout:drawerlayout:1.1.1'
     implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    implementation 'com.google.android.material:material:1.7.0'
 
     //Room
     def room_version = "2.4.3"
     implementation "androidx.room:room-runtime:$room_version"
     kapt "androidx.room:room-compiler:$room_version"
 
-//    //Anko
-//    def anko_version='0.10.8'
-//    implementation "org.jetbrains.anko:anko-commons:$anko_version"
-
-
+    //Animated Theme Manager
+    implementation "com.dolatkia:animated-theme-manager:1.1.4"
 
 }
